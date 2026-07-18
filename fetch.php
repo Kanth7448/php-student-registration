@@ -13,7 +13,7 @@ echo "<tr>
 <th>Name</th>
 <th>Contact</th>
 <th>Email</th>
-<th>Date</th>
+<th>Date of Joining</th>
 </tr>";
 
 while($row=mysqli_fetch_assoc($result))

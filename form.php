@@ -1,46 +1,59 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Registration</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-        <h3>Student Registration Form</h3>
-   <form id="studentForm">
 
-        <label for="name">First Name</label>
-        <input type="text" placeholder="Enter your Name" id="name" name="name" required>
-<br><br><br>
-        <label for="number">Contact</label>
-         <input type="tel" id="number" placeholder="Enter your Number" pattern="[0-9]{10}"  name="number" maxlength="10" required>
-<br><br><br>
+<div class="container">
 
-        <label for="mail">Email Address</label>
-        <input type="email" placeholder="Enter your Email" id="mail" name="mail" required>
-<br><br><br>
-        <label for="DOJ">Date of Registration</label>
-        <input type="date" id="DOJ" name="DOJ" required>
-<br><br><br>
+<h2>Student Registration Form</h2>
 
-        <button name="submit" type="submit">
-            Submit
-        </button>
-    </form>
+<form id="studentForm">
 
-    <br>
+<div class="input-box">
+<label>First Name</label>
+<input type="text" name="name" placeholder="Enter Name" required>
+</div>
+
+<div class="input-box">
+<label>Contact</label>
+<input type="tel" name="number" placeholder="Enter Contact Number" pattern="[0-9]{10}" required>
+</div>
+
+<div class="input-box">
+<label>Email Address</label>
+<input type="email" name="mail" placeholder="Enter Email" required>
+</div>
+
+<div class="input-box">
+<label>Date of Registration</label>
+<input type="date" name="DOJ" required>
+</div>
+
+<button type="submit">Register</button>
+
+</form>
 
 <div id="message"></div>
 
 <hr>
 
+<h2>Student Records</h2>
+
 <div id="tableData"></div>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</div>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="script.js"></script>
 
 </body>
 </html>
-
