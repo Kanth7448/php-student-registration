@@ -8,7 +8,8 @@
 </head>
 <body>
         <h3>Student Registration Form</h3>
-    <form  method="POST" action="insert.php">
+   <form id="studentForm">
+
         <label for="name">First Name</label>
         <input type="text" placeholder="Enter your Name" id="name" name="name" required>
 <br><br><br>
@@ -27,5 +28,19 @@
             Submit
         </button>
     </form>
+
+    <br>
+
+<div id="message"></div>
+
+<hr>
+
+<div id="tableData"></div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="script.js"></script>
+
 </body>
 </html>
+
