@@ -1,39 +1,46 @@
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function () {
   loadData();
 
   function loadData() {
-    $.ajax({
-      url: "fetch.php",
+    var xhr = new XMLHttpRequest();
 
-      type: "GET",
+    xhr.open("GET", "fetch.php", true);
 
-      success: function (data) {
-        $("#tableData").html(data);
-      },
-    });
+    xhr.onload = function () {
+      if (xhr.status == 200) {
+        document.getElementById("tableData").innerHTML = xhr.responseText;
+      }
+    };
+
+    xhr.send();
   }
 
-  $("#studentForm").on("submit", function (e) {
-    e.preventDefault();
+  document
+    .getElementById("studentForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    $.ajax({
-      url: "insert.php",
+      var xhr = new XMLHttpRequest();
 
-      type: "POST",
+      xhr.open("POST", "insert.php", true);
 
-      data: $(this).serialize(),
+      xhr.onload = function () {
+        if (xhr.status == 200) {
+          if (xhr.responseText == "success") {
+            document.getElementById("message").innerHTML =
+              "Record Inserted Successfully";
 
-      success: function (response) {
-        if (response == "success") {
-          $("#message").html("Record Inserted Successfully");
+            document.getElementById("studentForm").reset();
 
-          $("#studentForm")[0].reset();
-
-          loadData();
-        } else {
-          $("#message").html(response);
+            loadData();
+          } else {
+            document.getElementById("message").innerHTML = xhr.responseText;
+          }
         }
-      },
+      };
+
+      var formData = new FormData(this);
+
+      xhr.send(formData);
     });
-  });
 });
